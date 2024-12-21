@@ -1,1 +1,1 @@
-# Software-para-Computa-o-Ub-qua---2024-2-
+
