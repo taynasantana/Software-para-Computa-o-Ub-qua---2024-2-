@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta de Alagamento - Goiânia</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a, .navbar button {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border: none;
+            background-color: transparent;
+            font-size: 16px;
+        }
+        .navbar a:hover, .navbar button:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .content {
+            padding: 20px;
+        }
+        .alert-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .alert-button:hover {
+            background-color: darkred;
+        }
+        .btn-warning {
+            background-color: yellow;
+            color: black;
+        }
+        .btn-danger {
+            background-color: red;
+            color: white;
+        }
+        .btn-info {
+            background-color: blue;
+            color: white;
+        }
+        canvas {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#contato">Contato</a>
+        <a href="#sobre">Sobre</a>
+        <button class="btn-warning">Alerta Amarelo</button>
+        <button class="btn-danger">Alerta Vermelho</button>
+        <button class="btn-info">Mapa</button>
+    </div>
+
+    <div class="content" id="home">
+        <h1>Bem-vindo ao Alerta de Alagamento - Goiânia</h1>
+        <p>Este site fornece informações sobre o nível de alagamento nas vias de Goiânia.</p>
+
+        <!-- Gráfico de Nível de Alagamento -->
+        <h2>Nível de Alagamento nas Vias</h2>
+        <canvas id="floodChart"></canvas>
+        <script>
+            var ctx = document.getElementById('floodChart').getContext('2d');
+            var floodChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Rua A', 'Rua B', 'Rua C', 'Rua D', 'Rua E'],
+                    datasets: [{
+                        label: 'Nível de Alagamento (em metros)',
+                        data: [0.2, 0.5, 0.8, 0.3, 1.0],
+                        borderColor: 'blue',
+                        fill: false,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Nível de Alagamento (m)'
+                            }
+                        }
+                    }
+                });
+        </script>
+    </div>
+
+    <div class="content" id="contato">
+        <h1>Contato</h1>
+        <p>Se você precisar de mais informações ou quiser relatar um alagamento, entre em contato conosco:</p>
+        <p><strong>Telefone:</strong> <a href="tel:+5562985665020">62 98566-5020</a></p>
+    </div>
+
+    <div class="content" id="sobre">
+        <h1>Sobre</h1>
+        <p>Este site foi desenvolvido para monitorar e alertar os cidadãos sobre os níveis de alagamento nas ruas de Goiânia. Com o aumento das chuvas, é importante estar atento às condições das vias para garantir a segurança de todos.</p>
+        <p>Nosso objetivo é fornecer alertas rápidos e precisos para ajudar na prevenção de acidentes e danos materiais.</p>
+    </div>
+</body>
+</html>
+
